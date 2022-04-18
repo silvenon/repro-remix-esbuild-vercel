@@ -5,24 +5,36 @@
   "license": "",
   "sideEffects": false,
   "scripts": {
-    "build": "remix build",
-    "dev": "remix dev"
+    "build": "npm-run-all build:css build:remix",
+    "build:css": "tailwindcss --output app/tailwind.css --minify",
+    "build:remix": "remix build",
+    "dev": "npm-run-all --parallel dev:*",
+    "dev:css": "tailwindcss --output app/tailwind.css --watch",
+    "dev:remix": "remix dev"
   },
   "dependencies": {
+    "@headlessui/react": "^1.5.0",
     "@remix-run/node": "^1.4.1",
     "@remix-run/react": "^1.4.1",
     "@remix-run/vercel": "^1.4.1",
     "@vercel/node": "^1.14.0",
+    "clsx": "^1.1.1",
+    "esbuild": "^0.14.36",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "tiny-invariant": "^1.2.0"
   },
   "devDependencies": {
     "@remix-run/dev": "^1.4.1",
     "@remix-run/eslint-config": "^1.4.1",
     "@remix-run/serve": "^1.4.1",
+    "@tailwindcss/forms": "^0.5.0",
+    "@tailwindcss/typography": "^0.5.2",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
     "eslint": "^8.11.0",
+    "npm-run-all": "^4.1.5",
+    "tailwindcss": "^3.0.24",
     "typescript": "^4.5.5"
   },
   "engines": {
