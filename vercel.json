@@ -1,5 +1,6 @@
 {
   "build": {
+    "version": 3,
     "env": {
       "ENABLE_FILE_SYSTEM_API": "1"
     }
